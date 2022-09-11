@@ -1,0 +1,18 @@
+name: Linting
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Lint
+        uses: aglipanci/laravel-pint-action@0.1.0
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Linting
